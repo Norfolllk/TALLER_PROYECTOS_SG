@@ -20,7 +20,6 @@ public class TareaController {
         this.service = service;
     }
 
-    
     @PostMapping
     public ResponseEntity<?> guardar(@RequestBody Tarea tarea) {
 
@@ -29,11 +28,6 @@ public class TareaController {
             Tarea nueva = service.guardar(tarea);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(nueva);
-
-        } catch (RuntimeException e) {
-
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(e.getMessage());
 
         } catch (Exception e) {
 
